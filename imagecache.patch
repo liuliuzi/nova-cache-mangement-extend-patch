@@ -1,0 +1,31 @@
+504a505,507
+>         ############
+>         image_in_cache_forever=False
+>         ############ 
+545a549,570
+>         ############
+>         #if img_id in self.cached_forever_images:
+>         from nova.image import glance
+>         from nova import context
+>         from keystoneclient.v2_0 import client
+>         keystone2 = client.Client(username="admin",
+>                          password="xxxxxx",
+>                          tenant_name="admin",
+>                          auth_url="http://controller:5000/v2.0/")
+>         ctx = context.RequestContext(user_id=keystone2.user_id,is_admin=True,
+>                                  project_id=keystone2.project_id,
+>                                  user_name=keystone2.username,
+>                                  project_name=keystone2.project_name,
+>                                  roles=['admin'],
+>                                  auth_token=keystone2.auth_token,
+>                                  remote_address=None,
+>                                  service_catalog=keystone2.service_catalog.catalog['serviceCatalog'],
+>                                  request_id=None)
+> 
+>         glance_server = glance.GlanceImageService()
+>         image_in_cache_forever = glance_server.is_cache_forever(ctx,img_id)
+>         ############
+549a575,577
+>             ############
+>             if not image_in_use and not image_in_cache_forever:
+>             ############

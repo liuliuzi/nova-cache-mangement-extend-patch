@@ -1,0 +1,17 @@
+295c295,303
+< 
+---
+>     ###############
+>     def is_cache_forever(self, context, image_id):
+>         img=self.show(context,image_id)
+>         if img['properties'].has_key( 'cache_forever'):
+>             return True
+>         else:
+>             return False
+>     ###############
+>  
+493,494c501
+< 
+< 
+---
+>     
